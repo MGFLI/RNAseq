@@ -60,10 +60,7 @@ EOF
 if ($#ARGV < 3){die $usage;}
 
 
-# Optionen parsen
 my %Options;
-# alle möglichen optionen auf die das modul schauen soll werden hier eingetragen
-# wenn eine option ein argument hat, muss das mit ":" markiert werden
 getopts('e:m:a:ph', \%Options);
 
 if (not exists $Options{'e'}){die print("Please provide export file...\n");}
@@ -73,9 +70,6 @@ if ($Options{'h'}){die $usage;}
 # export file
 my($fasta) = $Options{'e'};
 
-#print Dumper $Options{'m'};
-#print "TEST\n\n\n";
-#exit;
 
 # check whether transcript info file is needed
 if (($Options{'m'} eq 'rpkm') and (not exists $Options{'a'}))
